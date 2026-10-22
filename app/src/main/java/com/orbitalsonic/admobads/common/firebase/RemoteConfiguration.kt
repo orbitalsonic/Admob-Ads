@@ -2,10 +2,10 @@ package com.orbitalsonic.admobads.common.firebase
 
 import android.content.SharedPreferences
 import android.util.Log
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.get
-import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.orbitalsonic.admobads.common.firebase.RemoteConstants.APP_OPEN_KEY
 import com.orbitalsonic.admobads.common.firebase.RemoteConstants.BANNER_AD_KEY

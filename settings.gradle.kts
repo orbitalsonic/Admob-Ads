@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Admob Ads"
-include ':app'
+include(":app")
