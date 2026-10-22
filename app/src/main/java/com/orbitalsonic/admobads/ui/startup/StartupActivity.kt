@@ -46,7 +46,7 @@ class StartupActivity : BaseActivity<ActivityStartupBinding>(ActivityStartupBind
             (supportFragmentManager.findFragmentById(binding.fcvContainerSplash.id) as NavHostFragment).navController
         val navInflater = navController.navInflater
         val navGraph = navInflater.inflate(R.navigation.nav_graph_startup)
-        if (sharedPrefManager.isFirstTimeEntrance) {
+        if (sharedPrefManager.isFirstTimeStartup) {
             navGraph.setStartDestination(R.id.fragmentStartupStart)
         } else {
             navGraph.setStartDestination(R.id.fragmentStartup)

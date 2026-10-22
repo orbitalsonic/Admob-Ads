@@ -2,17 +2,17 @@ package com.orbitalsonic.admobads.common.preferences
 
 import android.content.SharedPreferences
 
-private const val FIRST_TIME_ENTRANCE_KEY = "first_time_entrance"
+private const val FIRST_TIME_STARTUP_KEY = "first_time_startup"
 private const val APP_LANGUAGE_CODE_KEY = "app_language_code"
 private const val APP_PURCHASED_KEY = "app_purchased"
 
 class SharedPrefManager(private val sharedPreferences: SharedPreferences) {
 
-    var isFirstTimeEntrance: Boolean
-        get() = sharedPreferences.getBoolean(FIRST_TIME_ENTRANCE_KEY, true)
+    var isFirstTimeStartup: Boolean
+        get() = sharedPreferences.getBoolean(FIRST_TIME_STARTUP_KEY, true)
         set(value) {
             sharedPreferences.edit().apply {
-                putBoolean(FIRST_TIME_ENTRANCE_KEY, value)
+                putBoolean(FIRST_TIME_STARTUP_KEY, value)
                 apply()
             }
         }

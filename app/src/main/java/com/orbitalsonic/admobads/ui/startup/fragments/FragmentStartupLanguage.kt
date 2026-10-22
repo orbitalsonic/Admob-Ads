@@ -44,7 +44,7 @@ class FragmentStartupLanguage :
 
     private fun onContinueClick() {
         if (isAdded) {
-            sharedPrefManager.isFirstTimeEntrance = false
+            sharedPrefManager.isFirstTimeStartup = false
             (activity as StartupActivity).nextActivity()
             admobInterstitial.showInterstitialAd(activity, object : InterstitialOnShowCallBack {
                 override fun onAdDismissedFullScreenContent() {}

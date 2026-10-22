@@ -8,6 +8,7 @@ This Android project provides a modular implementation of all major AdMob ad for
 - ✅ Rewarded Ads
 - ✅ Rewarded Interstitial Ads
 - ✅ App Open Ads
+- ✅ UMP consent, shared fullscreen-ad gate (`:gmaAds`)
 
 ---
 
@@ -34,6 +35,41 @@ This Android project provides a modular implementation of all major AdMob ad for
 - **Rewarded Ads**: Offers user incentives.
 - **Rewarded Interstitial Ads**: Combines interstitial and rewarded experiences.
 - **App Open Ads**: Displayed during app cold/warm start.
+
+---
+
+## 🗂️ Project Structure
+
+| Module     | Package                          | Purpose                                                                                                    |
+|------------|----------------------------------|------------------------------------------------------------------------------------------------------------|
+| `:app`     | `com.orbitalsonic.admobads`      | Original sample: single-module ads implementation (banner, native, interstitial, rewarded, app open).      |
+| `:gmaApp`  | `com.hypersoft.ads.practice`     | Demo app for the modular `:gmaAds` library (startup, language, onboarding, dashboard, feature screens).   |
+| `:gmaAds`  | `com.hypersoft.ads.practice.gmaAds` | Reusable ads library: config → validation → controller pipeline per format, UMP consent, Koin module. |
+| `:data`    | `com.hypersoft.ads.practice.data`   | Remote Config and SharedPreferences used by `:gmaAds`.                                                  |
+| `:core`    | `com.hypersoft.ads.practice.core`   | Shared base classes, extensions, internet manager, theme.                                               |
+
+`:gmaAds` is taken from [hypersoftdev/Admob-Ads](https://github.com/hypersoftdev/Admob-Ads). See [`gmaAds/README.md`](gmaAds/README.md) for how to add or remove a placement and the load/show call shapes, and [`docs/architecture.md`](docs/architecture.md) for the architecture.
+
+---
+
+## 🛠️ Build Setup
+
+- Gradle **9.8.2** (wrapper), Android Gradle Plugin **9.4.1**, Kotlin **2.4.21**
+- Kotlin DSL (`*.gradle.kts`) with a version catalog: `gradle/libs.versions.toml`
+- Java **21** source/target; run Gradle on JDK 21 or newer (Android Studio's bundled JBR works)
+- `compileSdk` 37, `minSdk` 24
+
+```bash
+./gradlew :app:assembleDebug      # original sample
+./gradlew :gmaApp:assembleDebug   # modular :gmaAds demo
+./gradlew :gmaApp:installDebug    # install on a connected device
+```
+
+In Android Studio pick the `app` or `gmaApp` run configuration.
+
+**Firebase:** `:app` ships a `google-services.json`. `:gmaApp` has none, so Remote Config falls back to its built-in defaults (all placements on). Add a `google-services.json` for `com.hypersoft.ads.practice` and apply the `google-services` plugin to `:gmaApp` to control ads remotely.
+
+**Ad IDs:** all IDs are Google test IDs. Replace the `resValue` entries in `app/build.gradle.kts` and `gmaAds/build.gradle.kts` before release.
 
 ---
 
