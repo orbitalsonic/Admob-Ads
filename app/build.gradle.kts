@@ -23,8 +23,8 @@ android {
         applicationId = "com.orbitalsonic.admobads"
         minSdk = 24
         targetSdk = 36
-        versionCode = 109
-        versionName = "4.7.109"
+        versionCode = 367
+        versionName = "14.17.367"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
